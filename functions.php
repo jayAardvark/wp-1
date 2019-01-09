@@ -1,6 +1,17 @@
 <?php
     
-    /*the first argument instructs WP what type of instructions were giving; this code is then run at "different times" to load a file we use the following first argument. the second argument is the name of a function that we want to run (here it is created by us). finish the code to upload styles file*/
+    //define the function called in add_action below as 2nd argument. 
+    function learn_land_files() {
+        //feel free to add as much css or javaScript in here as you want!
+        
+        //add the style.css file.  1st argument: arbitrary nickname for style-sheet. 2nd argument: location that points towards file--we can point to specific file directories but here we'll use get_stylesheet_uri() to access WP's default stylesheet "style.css".  we can duplicate the line below to get a 2nd or 3rd stylesheet
+        // if a javascript file was desired, we'd use wp_enqueue_script()
+        wp_enqueue_style('learn_land_main_styles', get_stylesheet_uri() );
+    };
+    
+    /*add_action will be used extensively.  the first argument instructs WP what type of instructions we're giving; this code is then run at "different times". the first argument here tells WP to load css or javasript etc. the second argument is the name of a function that we want to run (here it is created by us). finish the code to upload styles file*/
+    //simply, the 2nd argument is the function called at a "specific moment".  the "specific moment" here is the 1st argument wp_enqueue_scripts.  in addtion to wp_enqueue_scripts, WP has many other hooks/moments that we can use
+    //note that the function learn_land_files is written below without parentheses.  it is not called immediately below within add_action but after the first argument occurs. in other words, the function is referenced by name below but not immediately called!
     add_action('wp_enqueue_scripts', 'learn_land_files');
 
-?>
+

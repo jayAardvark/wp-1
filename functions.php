@@ -7,6 +7,12 @@
         //add the style.css file.  1st argument: arbitrary nickname for style-sheet. 2nd argument: location that points towards file--we can point to specific file directories but here we'll use get_stylesheet_uri() to access WP's default stylesheet "style.css".  we can duplicate the line below to get a 2nd or 3rd stylesheet
         // if a javascript file was desired, we'd use wp_enqueue_script()
         wp_enqueue_style('learn_land_main_styles', get_stylesheet_uri() );
+
+        //let's load in the icons from the html code we're using 
+        wp_enqueue_style('font_awesome_copied_link', '//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+        //let's load in the font used in the code that we're modifying
+        wp_enqueue_style('font_from_theme', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');
     };
     
     /*add_action will be used extensively.  the first argument instructs WP what type of instructions we're giving; this code is then run at "different times". the first argument here tells WP to load css or javasript etc. the second argument is the name of a function that we want to run (here it is created by us). finish the code to upload styles file*/

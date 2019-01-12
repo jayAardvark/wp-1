@@ -13,6 +13,9 @@
 
         //let's load in the font used in the code that we're modifying
         wp_enqueue_style('font_from_theme', '//fonts.googleapis.com/css?family=Roboto+Condensed:300,300i,400,400i,700,700i|Roboto:100,300,400,400i,700,700i');
+
+        //load javaScript that enables slide function of images.  note: the 3 arguments after the get_theme_file_uri below correspond to 1. any listed dependences, 2. a version (here we make it up "1.0"), and 3. whether we want to load the js at the bottom of the html file for speed's sake.
+        wp_enqueue_script('main_page_js', get_theme_file_uri('/js/scripts-bundled.js'), null, "1.0", true);
     };
     
     /*add_action will be used extensively.  the first argument instructs WP what type of instructions we're giving; this code is then run at "different times". the first argument here tells WP to load css or javasript etc. the second argument is the name of a function that we want to run (here it is created by us). finish the code to upload styles file*/
